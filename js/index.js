@@ -16,8 +16,10 @@
 
 //mouse hover event for anchor tags
 document.querySelectorAll('a').forEach(el =>{
-    el.addEventListener('mouseenter', () =>{
-        el.style.transform = "rotate(45deg)";  
+    el.addEventListener('mouseenter', (event) =>{
+        el.style.transform = "rotate(45deg)";
+        event.preventDefault();
+        console.log('You cannot enter this void.');
 });
     el.addEventListener('mouseleave', ()=>{
         el.style.transform = 'rotate(0deg)';
@@ -28,8 +30,10 @@ document.querySelectorAll('a').forEach(el =>{
 
 //click event for buttons
 document.querySelectorAll('.btn').forEach(el=>{
-    el.addEventListener('click',()=>{
+    el.addEventListener('click',(event)=>{
         el.style.border = '3px yellow solid';
+        event.preventDefault();
+        alert("yikes this is blocked!")
     })
 })
 //logo double click event
@@ -110,6 +114,7 @@ window.addEventListener('resize',(event)=>{
 let mouser = document.querySelectorAll('.btn').forEach(el=>{
     el.addEventListener('mouseover', function(event){
         event.target.style.color = 'brown';
+       
     })
-    preventDefault();
+    
 });
