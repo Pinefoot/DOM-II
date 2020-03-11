@@ -47,24 +47,24 @@ let headImg = document.querySelector('header img')
     } )
 
 //scroll event
-let lastScrollPosition = 0;
-let ticking = false;
+// let lastScrollPosition = 0;
+// let ticking = false;
 
-function scrollManip(scroll_pos){
-   let bodyColor = document.querySelector('body')
-   bodyColor.style.transform = 'rotate(180deg)';
-}
+// function scrollManip(scroll_pos){
+//    let bodyscroll = document.querySelector('body')
+//    bodyscroll.style.transform = 'rotate(10deg)';
+// }
 
-window.addEventListener('scroll', function (e){
-    lastScrollPosition = window.scrollY;
-    if(!ticking){
-        window.requestAnimationFrame(function(){
-            scrollManip(lastScrollPosition);
-            ticking = false;
-        });
-    }
+// window.addEventListener('scroll', function (e){
+//     lastScrollPosition = window.scrollY;
+//     if(!ticking){
+//         window.requestAnimationFrame(function(){
+//             scrollManip(lastScrollPosition);
+//             ticking = false;
+//         });
+//     }
     
-});
+// });
 
 //keydown
 // let dest = document.querySelector('.content-destination');
@@ -82,21 +82,34 @@ function logKey(e) {
   log.style.backgroundColor = 'green';
 }
 
+//focus
+let password = document.querySelector('input:nth-of-type(2)');
+password.addEventListener('focus', (event)=>{
+    event.target.style.backgroundColor = 'yellow';
+})
+
 
 //Load
 
 window.addEventListener('load', (event) =>{
-    alert('You have loaded this page, be careful when scrolling.');
+    alert('You have loaded this page, be careful when scrolling. Check the console for more information.');
+    console.log('You have come seeking answers, but only destruction awaits you as you toy with this website.');
+})
+
+//resize
+window.addEventListener('resize',(event)=>{
+   document.querySelectorAll('h2').forEach(el =>{
+        el.style.fontSize = '45rem';
+        console.log('What have you done to my poor headings? You monster!');
+    })
 })
 
 //select
-function selectThis(event){
-    let yourselector = document.querySelector('.destination');
-    let selection = event.taget.value.substring(event.target.selectionStart, event.target.selectionEnd);
-    yourselector.style.fontFamily = `${selection}`;
+function thisIsSelected(event){
+    const logSelect = document.getElementById('slectionID');
+    const selection = event.taget.value.substring(event.target.selectionStart, event.target.selectionEnd);
+    logSelect.textContent = `You have chosen ${selection}`;
 }
 
-
-let selector = document.querySelector('.destination');
-selector.addEventListener('select', selectThis);
-
+const selectatron = document.querySelector('input');
+selectatron.addEventListener('select', thisIsSelected);
