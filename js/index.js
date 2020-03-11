@@ -34,6 +34,7 @@ document.querySelectorAll('.btn').forEach(el=>{
         el.style.border = '3px yellow solid';
         event.preventDefault();
         alert("yikes this is blocked!")
+        
     })
 })
 //logo double click event
@@ -52,24 +53,24 @@ let headImg = document.querySelector('header img')
     } )
 
 //scroll event
-// let lastScrollPosition = 0;
-// let ticking = false;
+let lastScrollPosition = 0;
+let ticking = false;
 
-// function scrollManip(scroll_pos){
-//    let bodyscroll = document.querySelector('body')
-//    bodyscroll.style.transform = 'rotate(10deg)';
-// }
+function scrollManip(scroll_pos){
+   let bodyscroll = document.querySelector('body')
+   bodyscroll.style.transform = 'rotate(10deg)';
+}
 
-// window.addEventListener('scroll', function (e){
-//     lastScrollPosition = window.scrollY;
-//     if(!ticking){
-//         window.requestAnimationFrame(function(){
-//             scrollManip(lastScrollPosition);
-//             ticking = false;
-//         });
-//     }
+window.addEventListener('scroll', function (e){
+    lastScrollPosition = window.scrollY;
+    if(!ticking){
+        window.requestAnimationFrame(function(){
+            scrollManip(lastScrollPosition);
+            ticking = false;
+        });
+    }
     
-// });
+});
 
 //keydown
 
@@ -118,3 +119,11 @@ let mouser = document.querySelectorAll('.btn').forEach(el=>{
     })
     
 });
+
+
+let imageRemover = document.querySelector('#imgOne');
+    imageRemover.addEventListener('click',(event) =>{
+        imageRemover.style.visibility = 'hidden';
+
+        event.stopPropagation();
+    })
