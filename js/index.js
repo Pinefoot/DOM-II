@@ -23,6 +23,7 @@ document.querySelectorAll('a').forEach(el =>{
         el.style.transform = 'rotate(0deg)';
 });
     
+    
 })
 
 //click event for buttons
@@ -67,11 +68,7 @@ let headImg = document.querySelector('header img')
 // });
 
 //keydown
-// let dest = document.querySelector('.content-destination');
-// dest.addEventListener('keydown', doesAThing);
-// function doesAThing(e){
-//     log.textContent += `${e.code}`;
-// }
+
 
 const input = document.querySelector('input');
 const log = document.getElementById('input');
@@ -105,11 +102,14 @@ window.addEventListener('resize',(event)=>{
 })
 
 //select
-function thisIsSelected(event){
-    const logSelect = document.getElementById('slectionID');
-    const selection = event.taget.value.substring(event.target.selectionStart, event.target.selectionEnd);
-    logSelect.textContent = `You have chosen ${selection}`;
-}
 
-const selectatron = document.querySelector('input');
-selectatron.addEventListener('select', thisIsSelected);
+
+
+//mouseover
+
+let mouser = document.querySelectorAll('.btn').forEach(el=>{
+    el.addEventListener('mouseover', function(event){
+        event.target.style.color = 'brown';
+    })
+    preventDefault();
+});
