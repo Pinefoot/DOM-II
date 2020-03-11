@@ -125,5 +125,16 @@ let imageRemover = document.querySelector('#imgOne');
     imageRemover.addEventListener('click',(event) =>{
         imageRemover.style.visibility = 'hidden';
 
-        event.stopPropagation();
+        //event.stopPropagation();
     })
+
+
+
+let divs = document.querySelectorAll('div');
+function logText(e){
+    //console.log(this.classList.value);
+    console.log('help help contain this!');
+    e.stopPropagation();
+}
+
+divs.forEach(div => div.addEventListener('click', logText));
